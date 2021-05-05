@@ -4,6 +4,7 @@ import HomeScreen from "./components/home/HomeScreen";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import FormHandler from "./components/Form/FormHandler";
 import NotFound from "./components/pages/not-found/NotFound";
+import LoginScreen from "./components/pages/signup/LoginScreen";
 
 function App() {
   return (
@@ -12,6 +13,9 @@ function App() {
         <Switch>
           <Route path="/" exact>
             <HomeScreen />
+          </Route>
+          <Route path="/login">
+            <LoginScreen />
           </Route>
           <Route path="/react-color">
             <FormHandler />
