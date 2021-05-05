@@ -17,7 +17,6 @@ function Row({ title, fetchUrl, isLargeRow = false }) {
     fetchData();
   }, [fetchUrl]);
 
-  console.log("ENV: ", process.env);
   // console.log(movies);
 
   return (

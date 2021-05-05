@@ -10,7 +10,8 @@
 }
 
 .row-posters::-webkit-scrollbar {
-  display: none;
+  /* display: none; */
+  height: 5px;
 }
 
 .row-posters .row-poster {

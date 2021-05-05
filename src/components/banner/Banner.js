@@ -25,7 +25,7 @@ function Banner() {
     fetchData();
   }, []);
 
-  console.log(movie);
+  // console.log("Movie: ", movie);
 
   return (
     <div
