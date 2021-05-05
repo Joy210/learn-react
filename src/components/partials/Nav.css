@@ -1,0 +1,27 @@
+.navbar {
+  width: 100%;
+  background: transparent;
+  transition: all 0.3s ease-in-out;
+  min-height: 60px;
+}
+
+.navbar-dark {
+  background-color: #111;
+}
+
+.nav-logo img {
+  width: auto;
+  height: 26px;
+  /* background: url(./assets/img/logo.png) no-repeat;
+  background-size: contain;
+  background-position: 0; */
+}
+
+.navbar a {
+  float: left;
+  display: inline;
+}
+
+.nav-avatar img {
+  height: 35px;
+}

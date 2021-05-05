@@ -1,0 +1,45 @@
+.banner {
+  width: 100%;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 0;
+}
+
+.banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #111);
+  z-index: 1;
+}
+
+.banner .banner-contents {
+  color: #fff;
+  position: relative;
+  z-index: 2;
+}
+
+.banner .btn {
+  background-color: #555;
+  min-width: 100px;
+  color: #fff;
+}
+
+.banner .btn:hover {
+  color: #333;
+  background-color: #fff;
+}
+.banner .banner-title {
+  font-weight: 700;
+}
+
+.banner .banner-description {
+  /* font-size: 14px; */
+  margin-top: 15px;
+  max-width: 450px;
+}
