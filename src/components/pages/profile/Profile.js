@@ -1,45 +1,33 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { selectUser } from "../../../features/userSlice";
-import Nav from "../../partials/Nav";
+import Nav, { avatar } from "../../partials/Nav";
 import "./profile.scss";
 
 function Profile() {
   const user = useSelector(selectUser);
   console.log(user);
 
+  const avatarStyle = {
+    width: "46px",
+    heigth: "46px",
+  };
+
   return (
-    <div className="vh-100 w-100 d-flex justify-content-center align-items-center text-white text-center">
+    <div className="vh-100 w-100 d-flex justify-content-center align-items-center text-white">
       <Nav />
 
       <div className="content">
         <div className="login-container custom-bg-dark custom-border p-5">
+          <h2>Profile</h2>
+          <hr />
           <div className="header d-flex align-items-center">
-            <img src="" alt="" />
-            <p>{user.email}</p>
+            <img src={avatar} alt="" style={avatarStyle} />
+            <div className="box ml-3">
+              <small className="text-uppercase">User Email</small>
+              <p>{user.email}</p>
+            </div>
           </div>
-          <form action="">
-            <h2>Edit Profile</h2>
-            <div className="form-group mt-4">
-              <input
-                // ref={emailRef}
-                type="email"
-                className="form-control"
-                placeholder="Email address..."
-              />
-            </div>
-            <div className="form-group">
-              <input
-                // ref={passwordRef}
-                type="password"
-                className="form-control"
-                placeholder="xxxx xxxx xxxx"
-              />
-            </div>
-            <button className="btn btn-danger d-block w-100 text-uppercase">
-              Update
-            </button>
-          </form>
         </div>
       </div>
     </div>
