@@ -3,8 +3,7 @@ import { auth } from "../../../firebase";
 import "./login.scss";
 
 function LoginScreen() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [isRegistration, setRegistration] = useState(true);
 
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
@@ -18,9 +17,12 @@ function LoginScreen() {
         passwordRef.current.value
       )
       .then((authUser) => {
-        console.log(authUser);
+        // console.log("User Created: ", authUser);
       })
       .catch((err) => alert(err.message));
+
+    // emailRef = null;
+    // passwordRef = null;
   };
 
   const signIn = (e) => {
@@ -32,7 +34,7 @@ function LoginScreen() {
         passwordRef.current.value
       )
       .then((authUser) => {
-        console.log(authUser);
+        // console.log("User Login Successfully: ", authUser);
       })
       .catch((err) => alert(err.message));
   };
@@ -42,7 +44,7 @@ function LoginScreen() {
       <div className="content">
         <div className="login-container custom-bg-dark custom-border p-5">
           <form action="">
-            <h2>Sign In</h2>
+            <h2>{isRegistration ? "Sign UP" : "Sign In"}</h2>
             <div className="form-group mt-4">
               <input
                 ref={emailRef}
@@ -61,21 +63,40 @@ function LoginScreen() {
             </div>
             <button
               className="btn btn-danger d-block w-100 text-uppercase"
-              onClick={signIn}
+              onClick={isRegistration ? registration : signIn}
             >
-              Sign in
+              {isRegistration ? "Sign UP" : "Sign In"}
             </button>
 
-            <p className="mt-3">
-              Don't have any account.{" "}
-              <a
-                href=""
-                className="text-danger font-weight-bold"
-                onClick={registration}
-              >
-                Sign up
-              </a>{" "}
-            </p>
+            {isRegistration ? (
+              <small className="d-block mt-3 text-normal">
+                Already have an account?
+                <a
+                  href=""
+                  className="text-danger font-weight-bold ml-2"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setRegistration(false);
+                  }}
+                >
+                  Sign in
+                </a>
+              </small>
+            ) : (
+              <small className="d-block mt-3">
+                Don't have any account.
+                <a
+                  href=""
+                  className="text-danger font-weight-bold ml-2"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setRegistration(true);
+                  }}
+                >
+                  Sign up
+                </a>
+              </small>
+            )}
           </form>
         </div>
       </div>
