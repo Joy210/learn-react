@@ -7,7 +7,7 @@ import { auth } from "../../firebase";
 import "./Nav.css";
 
 const logo = "https://bit.ly/3aBYy1P";
-const avatar = "https://bit.ly/2QS8b5M";
+export const avatar = "https://bit.ly/2QS8b5M";
 
 function Nav() {
   const [show, handleShow] = useState(false);
